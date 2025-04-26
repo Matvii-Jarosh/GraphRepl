@@ -46,4 +46,11 @@ DISTFILES += \
     .gitignore \
     GraphRepl.pro.user \
     LICENSE \
+    README.md \
+    doc/basic_check.md \
+    doc/basic_primitive.md \
+    doc/math.md \
+    doc/system.md \
+    doc/type_check.md \
+    img/screenshot_0.jpg \
     init.scm
