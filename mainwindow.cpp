@@ -50,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     topRightWidget = new QTextEdit;
     topRightWidget->setTabStopDistance(20);
+    topRightWidget->setReadOnly(true);
     topRightWidget->setFont(QFont("Consolas", 10));
     topRightWidget->setStyleSheet("border-radius: 0");
 
