@@ -23,7 +23,6 @@
 #define MAINWINDOW_H
 
 #include "evaluator.h"
-#include "environment.h"
 #include "codeeditor.h"
 
 #include <QMainWindow>
@@ -32,10 +31,11 @@
 #include <QTableView>
 #include <QStandardItemModel>
 
+class Environment;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
+    friend Environment;
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();

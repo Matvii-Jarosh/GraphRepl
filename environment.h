@@ -23,6 +23,7 @@
 #define ENVIRONMENT_H
 
 #include "value.h"
+#include "mainwindow.h"
 #include <string>
 #include <map>
 
@@ -30,6 +31,7 @@ class Environment
 {
 public:
     using Ptr = std::shared_ptr<Environment>;
+    friend void MainWindow::updateTable();
 
     Environment();
     ~Environment();
@@ -40,10 +42,9 @@ public:
     Value get(const std::string& name) const;
     bool has(const std::string& name) const;
 
-    std::map<std::string, Value> map;
-
 private:
     Ptr parent;
+    std::map<std::string, Value> map;
 };
 
 #endif // ENVIRONMENT_H

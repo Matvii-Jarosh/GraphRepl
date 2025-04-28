@@ -23,10 +23,10 @@
 #define EVALUATOR_H
 
 #include "value.h"
-#include "environment.h"
 #include <functional>
 #include <map>
 
+class Environment;
 class Evaluator
 {
 public:
