@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: C/C++ Qt CI
 
 on:
   push:
@@ -13,5 +13,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: make
-      run: make
+    
+    - name: Set up Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        qt-version: '6.9.0'
+        dir: 'C:/Qt'
+        arch: 'win64_mingw'
+        cached: true
+        
+    - name: Add Qt and MinGW to PATH
+      run: |
+        echo "C:\Qt\6.9.0\mingw_64\bin" >> $GITHUB_PATH
+        echo "C:\Qt\Tools\mingw1310_64\bin" >> $GITHUB_PATH
+        
+    - name: Run qmake
+      run: qmake -makefile D:/cpp_project/GraphRepl/GraphRepl.pro
+      
+    - name: Build with MinGW
+      run: mingw32-make -j16
